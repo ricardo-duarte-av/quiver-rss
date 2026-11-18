@@ -33,3 +33,17 @@ func TestParseDetails(t *testing.T) {
 		t.Error("console names")
 	}
 }
+
+func TestReadmeHasNoBlankLineRuns(t *testing.T) {
+	body, err := os.ReadFile("testdata/fighters-megamix.html")
+	if err != nil {
+		t.Fatal(err)
+	}
+	d, err := parseDetails(body)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(d.ReadmeHTML, "\n\n") {
+		t.Errorf("README still contains blank lines")
+	}
+}

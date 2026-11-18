@@ -178,6 +178,7 @@ func parseDetails(body []byte) (appDetails, error) {
 			}
 			return true
 		})
+		collapseWhitespace(readme)
 		var buf bytes.Buffer
 		for ch := readme.FirstChild; ch != nil; ch = ch.NextSibling {
 			_ = html.Render(&buf, ch)
@@ -185,6 +186,20 @@ func parseDetails(body []byte) (appDetails, error) {
 		d.ReadmeHTML = strings.TrimSpace(buf.String())
 	}
 	return d, nil
+}
+
+// collapseWhitespace replaces whitespace-only text nodes (the site's rendered README has
+// long runs of blank lines) with a single newline, leaving <pre> contents untouched.
+func collapseWhitespace(n *html.Node) {
+	walk(n, func(n *html.Node) bool {
+		if n.Type == html.ElementNode && (n.Data == "pre" || n.Data == "textarea") {
+			return false
+		}
+		if n.Type == html.TextNode && strings.TrimSpace(n.Data) == "" && strings.Contains(n.Data, "\n") {
+			n.Data = "\n"
+		}
+		return true
+	})
 }
 
 // isScreenshot filters out badges, logos-as-SVG and other non-screenshot images.
