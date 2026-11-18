@@ -191,6 +191,20 @@ var itemTmpl = template.Must(template.New("item").Parse(`
 {{.Readme}}
 {{- end}}`))
 
+// summaryTmpl is the compact <description>: chat-friendly (e.g. maubot/rss), images as links
+// because Matrix clients only render mxc:// images.
+var summaryTmpl = template.Must(template.New("summary").Funcs(template.FuncMap{"inc": func(i int) int { return i + 1 }}).Parse(`<p>
+<b>Game:</b> {{.Game}} ({{.System}})<br/>
+<b>Version:</b> {{if .Version}}{{.Version}}{{else}}—{{end}}{{if .Updated}} — {{.UpdatedAgo}} ({{.Updated}}){{end}}<br/>
+<b>Repo:</b> {{if .Repo}}<a href="{{.Repo}}">{{.Repo}}</a>{{else}}—{{end}}
+{{- if .Screenshots}}<br/>
+<b>Screenshots:</b> {{range $i, $s := .Screenshots}}{{if $i}} · {{end}}<a href="{{$s}}">{{inc $i}}</a>{{end}}
+{{- end}}
+</p>
+{{- if .Description}}
+<p>{{.Description}}</p>
+{{- end}}`))
+
 type itemView struct {
 	Name, Game, System, Version, Updated, UpdatedAgo string
 	Developer, Repo, Link, Description, Header       string
@@ -225,9 +239,12 @@ func (s *service) buildItem(e entry, now time.Time) rssItem {
 		v.Updated = rel.Format("2006-01-02")
 		v.UpdatedAgo = humanAgo(now.Sub(rel))
 	}
-	var body bytes.Buffer
+	var body, summary bytes.Buffer
 	if err := itemTmpl.Execute(&body, v); err != nil {
 		log.Printf("template %s: %v", a.Slug, err)
+	}
+	if err := summaryTmpl.Execute(&summary, v); err != nil {
+		log.Printf("summary template %s: %v", a.Slug, err)
 	}
 
 	pub := msToTime(a.AddedAt)
@@ -245,7 +262,7 @@ func (s *service) buildItem(e entry, now time.Time) rssItem {
 		Link:        link,
 		GUID:        rssGUID{Value: guid, IsPermaLink: false},
 		Author:      a.Developer.Name,
-		Description: cdata{body.String()},
+		Description: cdata{summary.String()},
 		Content:     cdata{body.String()},
 	}
 	if !pub.IsZero() {

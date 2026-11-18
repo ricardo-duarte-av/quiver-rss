@@ -27,6 +27,20 @@ curl http://localhost:8080/
 
 or `go run .`
 
+## Feed format
+
+- `<description>` is short and works well in chat: game and system, version and last update, repo link, screenshot links and a one-paragraph description.
+- `<content:encoded>` has the full article: header image, details table, inline screenshots and the whole README. Full feed readers show this one.
+
+### maubot/rss
+
+[maubot/rss](https://github.com/maubot/rss) reads `<description>` into `$summary`. Suggested template:
+
+```
+!rss template <feed id> ### [$title]($link)
+$summary
+```
+
 ## Configuration (environment variables)
 
 | Variable        | Default | Description |
