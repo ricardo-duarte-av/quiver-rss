@@ -1,0 +1,13 @@
+services:
+  quiver-rss:
+    image: ghcr.io/ricardo-duarte-av/quiver-rss:latest
+    # build: .   # uncomment to build locally instead of pulling
+    container_name: quiver-rss
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      POLL_INTERVAL: "30m"   # how often to check quiverlauncher.com
+      FEED_SIZE: "50"        # number of recomps in the feed
+      SORT: "added"          # "added" = new recomps, "updated" = new releases

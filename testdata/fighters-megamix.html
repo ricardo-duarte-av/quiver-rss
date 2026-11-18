@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090f17" />
+    <meta name="description" content="Fighters Megamix Recomp is a native PC port of Fighters Megamix for Windows, Linux, and macOS with high resolution and widescreen support." />
+    <title>Fighters Megamix Recomp – Native PC Port | Quiver</title>
+    <script type="module" crossorigin src="/assets/main-C_yTAlm7.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/theme-Cj0pBKhO.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-BebroM3T.css">
+    <link rel="stylesheet" crossorigin href="/assets/fonts-DreOFYE_.css">
+    <script>(function(){var r=document.documentElement,q=matchMedia("(prefers-color-scheme: light)");function a(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=q.matches?"light":"dark";r.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==="light"?"#ffffff":"#0e0e10"}a();q.addEventListener("change",a);addEventListener("storage",a)})()</script>
+  <link rel="canonical" href="https://quiverlauncher.com/apps/fighters-megamix-fighters-megamix-recomp"><meta property="og:site_name" content="Quiver Launcher"><meta property="og:type" content="article"><meta property="og:title" content="Fighters Megamix Recomp – Native PC Port | Quiver"><meta property="og:description" content="Fighters Megamix Recomp is a native PC port of Fighters Megamix for Windows, Linux, and macOS with high resolution and widescreen support."><meta property="og:url" content="https://quiverlauncher.com/apps/fighters-megamix-fighters-megamix-recomp"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Fighters Megamix Recomp – Native PC Port | Quiver"><meta name="twitter:description" content="Fighters Megamix Recomp is a native PC port of Fighters Megamix for Windows, Linux, and macOS with high resolution and widescreen support."><meta property="og:image" content="https://cdn2.steamgriddb.com/grid/3e93d94392796ac22707eb6e017acdbc.png"><meta name="twitter:image" content="https://cdn2.steamgriddb.com/grid/3e93d94392796ac22707eb6e017acdbc.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Fighters Megamix Recomp","description":"Fighters Megamix Recomp is a native PC port of Fighters Megamix for Windows, Linux, and macOS with high resolution and widescreen support.","applicationCategory":"GameApplication","operatingSystem":"Windows, Linux, macOS","image":"https://cdn2.steamgriddb.com/grid/3e93d94392796ac22707eb6e017acdbc.png","author":{"@type":"Person","name":"tmcleroy"},"softwareVersion":"v0.1.0-beta.4","datePublished":"2026-11-17","codeRepository":"https://github.com/tmcleroy/fighters-megamix-recomp","isAccessibleForFree":true,"about":{"@type":"VideoGame","name":"Fighters Megamix","url":"https://quiverlauncher.com/games/fighters-megamix"}}</script></head>
+  <body>
+    <div id="root"><main class="container seo-snapshot"><nav><a href="/">Quiver catalog</a> ·<!-- --> <a href="/download/">Download Quiver Launcher</a></nav><article><h1>Fighters Megamix Recomp</h1><p>Fighters Megamix Recomp is a native PC port of Fighters Megamix for Windows, Linux, and macOS with high resolution and widescreen support.</p><ul><li>Type: <!-- -->PC port</li><li>Game:<!-- --> <span><a href="/games/fighters-megamix">Fighters Megamix</a></span></li><li>Runs on <!-- -->Windows, Linux and macOS</li><li>By <!-- -->tmcleroy</li><li>Latest release <!-- -->v0.1.0-beta.4<!-- -->,<!-- --> <!-- -->2026-11-13</li><li>Source: <a href="https://github.com/tmcleroy/fighters-megamix-recomp">https://github.com/tmcleroy/fighters-megamix-recomp</a></li></ul><section><h2>README</h2><div class="markdown "><h3 class="md-h1">Fighters Megamix Recomp</h3>
+<p><strong><a href="https://discord.gg/FSC9GZ6nm" target="_blank" rel="noreferrer">Join me on Discord</a></strong></p>
+<p>An unofficial native PC port of <em>Fighters Megamix</em> (Sega AM2, Sega Saturn, 1997) for macOS, Linux, SteamOS and
+Windows, made by static recompilation on <a href="https://github.com/tmcleroy/satrecomp" target="_blank" rel="noreferrer">satrecomp</a>, the toolkit made for
+the Fighting Vipers port.</p>
+<blockquote>
+<p><strong>Early work.</strong> The game starts, its menus work and fights play to the end, all on the toolkit&#x27;s own machine with
+no emulator. The opening movie plays and can be skipped. Nothing has been tested by hand yet.</p>
+</blockquote>
+<p class="md-lone-image"><img alt="A fight in 16:9 at the window&#x27;s resolution" loading="lazy" src="https://raw.githubusercontent.com/tmcleroy/fighters-megamix-recomp/main/docs/screenshots/widescreen.jpg"/></p>
+<p><strong>No game files are included.</strong> You need a disc image you made from your own <em>Fighters Megamix</em> (USA) disc. No
+Saturn BIOS is needed.</p>
+<p>The game&#x27;s SH-2 code is translated ahead of time into C++ and compiled into the program, where it runs on
+satrecomp&#x27;s own machine: its own video renderer, sound chip, CPUs and hardware, and its own stand-in for the BIOS.
+<strong>No emulator is part of the program.</strong> Megamix is built on Fighting Vipers&#x27; engine, and the routines the two games
+share (file loading, CD music, the controllers) are replaced by the same C++ in both.</p>
+<h4 class="md-h2">The picture</h4>
+<ul>
+<li><strong>High resolution</strong>: polygons drawn by your graphics card at the window&#x27;s resolution, not the Saturn&#x27;s.</li>
+<li><strong>Widescreen</strong>: 16:9, with more of the arena at the sides. It works in the fights seen so far; the other screens
+have not been checked in it.</li>
+<li><strong>The display your way</strong>: sharp, whole-pixel or smooth scaling, 4:3 or square pixels, the window&#x27;s size, and
+RetroArch&#x27;s CRT and scanline shaders.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><img alt="A fight at the window&#x27;s resolution, 4:3" loading="lazy" src="https://raw.githubusercontent.com/tmcleroy/fighters-megamix-recomp/main/docs/screenshots/fight.jpg"/></td><td><img alt="The character select" loading="lazy" src="https://raw.githubusercontent.com/tmcleroy/fighters-megamix-recomp/main/docs/screenshots/select.jpg"/></td></tr></tbody></table>
+<p><strong><a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/PICTURE.md" target="_blank" rel="noreferrer">More about the picture →</a></strong></p>
+<h4 class="md-h2">Everything else</h4>
+<ul>
+<li><strong>Save states</strong>: nine slots, from the menu or F5 / F9 (<a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/LAUNCHER.md#keys-while-playing" target="_blank" rel="noreferrer">keys</a>).</li>
+<li><strong>Run-ahead</strong>: what you press seen a frame or two sooner, the game running exactly as without it
+(<a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/LAUNCHER.md#run-ahead" target="_blank" rel="noreferrer">more</a>).</li>
+<li><strong>Unlock everything</strong>: every character, course and extra option without playing for them, your own save kept as
+it is (<a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/LAUNCHER.md#unlock-everything" target="_blank" rel="noreferrer">more</a>).</li>
+<li><strong>Controls</strong>: a gamepad or the keyboard for two players, every button changeable, and buttons pressed together on
+one key (<a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/LAUNCHER.md#controllers" target="_blank" rel="noreferrer">more</a>).</li>
+<li><strong>Updates</strong> in the launcher, and a <strong>portable mode</strong> that keeps everything beside the program
+(<a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/LAUNCHER.md" target="_blank" rel="noreferrer">the launcher</a>).</li>
+<li><strong>A training mode</strong> is planned, like Fighting Vipers&#x27; (<a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/ROADMAP.md" target="_blank" rel="noreferrer">docs/ROADMAP.md</a>).</li>
+</ul>
+<h4 class="md-h2">Installing</h4>
+<p>Download the file for your system from the <a href="https://github.com/tmcleroy/fighters-megamix-recomp/releases" target="_blank" rel="noreferrer">releases page</a>, then:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>System</th><th>File</th><th>Then</th></tr></thead><tbody><tr><td>macOS 13 or later, Apple silicon or Intel</td><td><code>FightersMegamix-macos.zip</code></td><td>Unzip and open <strong>Fighters Megamix.app</strong>. It isn&#x27;t notarized: the first time, right-click it and choose <strong>Open</strong> (or allow it under System Settings, Privacy &amp; Security).</td></tr><tr><td>Linux x86_64, SteamOS (Steam Deck, Steam Machine)</td><td><code>FightersMegamix-linux-x86_64.tar.gz</code></td><td>Unpack and run <code>fighters_megamix-launcher</code>. On SteamOS, do this in Desktop Mode, and use the launcher&#x27;s <strong>Add to Steam</strong> to have it in Game Mode.</td></tr><tr><td>Linux ARM64 (aarch64)</td><td><code>FightersMegamix-linux-arm64.tar.gz</code></td><td>Unpack and run <code>fighters_megamix-launcher</code>.</td></tr><tr><td>Windows 10 or later, x64</td><td><code>FightersMegamix-windows-x64.zip</code></td><td>Unzip and run <code>fighters_megamix-launcher.exe</code>. Windows warns about an unknown publisher the first time: choose <strong>More info</strong>, then <strong>Run anyway</strong>.</td></tr></tbody></table>
+<p>In the launcher, drop your disc image&#x27;s <code>.cue</code> file on the window (or choose it), choose <strong>Features</strong> and
+<strong>Controllers</strong> as you like (or leave them), and <strong>Play</strong>. The launcher checks that the image is the release this
+port is made from (USA, <code>MK-81073</code>, V1.004) and remembers where it is; it never copies, moves or changes it.</p>
+<p>The disc image must be one you made from a disc you own. This project can&#x27;t help you find game files, and requests
+for them are closed. Where your settings and saves are kept: <a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/LAUNCHER.md#your-files" target="_blank" rel="noreferrer">docs/LAUNCHER.md</a>.</p>
+<h4 class="md-h2">Controls</h4>
+<p>Keyboard: arrows, Z / X / C for guard, punch and kick, Return for Start; on a gamepad, the d-pad or left stick and
+the lower buttons. While playing, <strong>Esc</strong>, <strong>F1</strong> or the gamepad&#x27;s Back button opens the menu (its &quot;Quit game&quot; row
+is how you leave), and <strong>F11</strong> switches full screen. <a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/LAUNCHER.md#controllers" target="_blank" rel="noreferrer">docs/LAUNCHER.md</a> has the whole
+layout and every key.</p>
+<h4 class="md-h2">Status</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>The game</td><td>Boot, title, mode select, character select and arcade fights (rounds, replay, continue, game over) run; the opening movie plays to its end and can be skipped. Seen in screenshots taken with no window, not yet played, heard or watched in a window by a person.</td></tr><tr><td>Platforms</td><td>macOS (Apple silicon, and Intel under Rosetta), Linux x86_64 (also a Steam Machine on SteamOS) and Windows x64 (under Wine): the release downloads replay a recorded fight to the same state as the Mac.</td></tr></tbody></table>
+<p><a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/games/fighters_megamix/PROGRESS.md" target="_blank" rel="noreferrer">games/fighters_megamix/PROGRESS.md</a> says what is native, what is known about
+the game, and what is still open; <a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/ROADMAP.md" target="_blank" rel="noreferrer">docs/ROADMAP.md</a> has what is planned.</p>
+<h4 class="md-h2">Building from source</h4>
+<p>See <a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/BUILDING.md" target="_blank" rel="noreferrer">docs/BUILDING.md</a>. In short, on a Mac with Xcode&#x27;s command line tools, CMake, Ninja,
+Python 3 and SDL 3:</p>
+<pre><code class="language-sh">cp &quot;/path/to/Fighters Megamix (USA).&quot;* disc/     # your own disc image (.cue and its .bin files)
+make &amp;&amp; make record ARGS=&quot;--frames 6000&quot;        # translate what the game runs
+make app                                         # build/fighters_megamix/Fighters Megamix.app
+</code></pre>
+<p><a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/docs/TOOLKIT.md" target="_blank" rel="noreferrer">docs/TOOLKIT.md</a> explains how the port is made.</p>
+<h4 class="md-h2">Feedback and contributing</h4>
+<p>Please <a href="https://github.com/tmcleroy/fighters-megamix-recomp/issues" target="_blank" rel="noreferrer">open an issue</a> for bugs, crashes, glitches or ideas, with your system, your controller and
+which features were on. <a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer">CONTRIBUTING.md</a> has the rules for code, the first of which is that
+nothing from the game ever goes in the repository.</p>
+<h4 class="md-h2">License</h4>
+<p>GPL-3.0-only (see <a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/LICENSE" target="_blank" rel="noreferrer">LICENSE</a>). Third-party code is listed in <a href="https://github.com/tmcleroy/fighters-megamix-recomp/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noreferrer">THIRD_PARTY_NOTICES.md</a>.</p>
+<p>This project is not affiliated with, endorsed by, or sponsored by Sega. <em>Fighters Megamix</em> and <em>Sega Saturn</em> are
+trademarks of Sega Corporation.</p></div></section></article></main></div>
+  </body>
+</html>

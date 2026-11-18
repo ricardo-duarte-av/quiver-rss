@@ -1,0 +1,7 @@
+.git
+.github
+.claude
+testdata
+*_test.go
+docker-compose.yaml
+README.md
